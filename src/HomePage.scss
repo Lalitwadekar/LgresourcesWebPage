@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Poppins&display=swap&family=Varela+Round&display=swap');
+
+// $base-font-size: 16px; // Set your base font size
+
+// // Define a mixin for converting pixels to rem
+// @mixin rem($property, $values...) {
+//   $rem-values: ();
+  
+//   @each $value in $values {
+//     $rem-values: append($rem-values, $value / $base-font-size * 1rem);
+//   }
+
+//   #{$property}: $rem-values;
+// }
+
+// Define Variables
+$bg-color: #1f3547;
+$text-color: #FFF;
+$secondary-color: #ef7123;
+
+// Font Family
+$primary-font: 'Poppins', sans-serif;
+$secondary-font: 'Varela Round', sans-serif;
+// Mixins
+@mixin flex ($justify){
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+@mixin font-style($font-family, $font-size, $font-weight, $color, $line-height) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    line-height: $line-height;
+}
+@mixin text-decoration {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    text-decoration-thickness: 0.02rem;
+}
+
+// Offer................................................................
+.Offer {
+    &_container {
+        @include flex(space-between);
+        background: $bg-color;
+        padding: 0.5rem;
+
+        &_box-1 {
+            background: rgba(255, 255, 255, 20%);
+            padding: 0.2rem 1rem;
+            border-radius: 0.6rem;
+            
+            &-text {
+                color: $text-color;
+                font-family: $primary-font;
+
+                &-link {
+                    @include text-decoration;
+                    cursor: pointer;
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+        &_box-2 {
+            display: flex;
+            gap: 2rem;
+            font-family: $primary-font;
+            margin-right: 2rem;
+            &-link-1, &-link-2{
+                color: $text-color;
+                &:hover {
+                    @include text-decoration();
+                    color: $secondary-color;
+                }
+            }
+            &-img {
+                @include flex(center);
+                cursor: pointer;
+                width: 0;
+                &:hover {
+                    font-size: 1.5rem;
+                }
+            }
+
+        }
+    }
+}
+
+// Header................................................................
+.Header {
+    &_container {
+        background: #FFF;
+        @include flex(space-between);
+        padding: 1.5rem 2rem;
+
+        &_logoBox {
+            width: 14rem;
+        }
+        &_linkBox {
+            @include flex(center);
+            gap: 2rem;
+            @include font-style($primary-font, 1rem, 400, #000, normal);
+            &_link-1 {
+                &:hover {
+                    @include text-decoration;
+                    color: $secondary-color;
+                }
+
+            }
+            &_link-2 {
+                cursor: pointer;
+                &:hover {
+                    @include text-decoration;
+                    color: $secondary-color;
+                }
+            }
+            &_link-3 {
+                cursor: pointer;
+                &:hover {
+                    @include text-decoration;
+                    color: $secondary-color;
+                }
+            }
+            &_link-4 {
+                &:hover {
+                    @include text-decoration;
+                    color: $secondary-color;
+                }
+            }
+        }
+        &_btn {
+            background-color: $secondary-color;
+            color: #FFF;
+            padding: 0.3rem 1.5rem;
+            border-radius: 0.5rem;
+            @include font-style($primary-font, 1rem, 400, #FFF, normal);
+            &:hover {
+                background-color: #FFF;
+                color: $secondary-color;
+                border: 0.01rem solid $secondary-color;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+// Slicklider................................................................
+.Slider_container {
+    &_main {  
+        
+        &_box {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 300px !important;
+            height: 370px;
+            background-color: #E3E8ED;
+            padding: 30px 20px 26px 30px;
+            border-radius: 20px;
+            overflow: auto;
+                &_text {
+                color: #000;
+                font-size: 18px;
+                font-family: Poppins,sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 27px;
+                overflow-wrap: break-word;
+            }
+            &_author {
+                color: #000;
+                font-size: 18px;
+                font-family: Poppins,sans-serif;
+                font-style: normal;
+                font-weight: 900;
+                line-height: 27px;
+            }
+        }
+    }
+}
+.slick-prev {
+    left: 169px !important;
+    top: 435px !important;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 26px !important;
+    border-radius: 15px;
+    border: 2px solid #777 !important;
+} 
+.slick-next {
+    left: 246px !important;
+    top: 435px !important;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 26px !important;
+    border-radius: 15px;
+    border: 2px solid #777 !important;
+} 
+.Slider_container_main_box_text::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 50%;
+}
+.Slider_container_main_box_text::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    background-color: $secondary-color;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+.Slider_container_main_box_text::-webkit-scrollbar-track {
+    // margin: 25px 0px 20px 0px;
+    background-color: #D8D8D8;
+    border-radius: 100vh;
+}
+
+// Banner................................................................................................
+.Banner_main {
+    position: relative;
+    &_container {
+        background-color: $bg-color;
+        display: flex;
+        justify-content: space-between;
+
+        // align-items: center;
+        height: 600px;
+        &_heading {
+            padding: 12rem 0rem 0rem 2rem;
+            width: 83vw;
+            & h1 {
+                color: #ffffff;
+                font-size: 54px;
+                font-family: 'Barlow', sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                line-height: 60px;
+            }
+        }
+        &_img {
+            position: absolute;
+            top: 1rem;
+            right: 21rem;
+            background-image: url('https://jobs.lgresources.com/hubfs/Group-26730.png');
+            height: 550px;
+            width: 570px;
+            max-height: 600px;
+            // background-position: 189% 49%;
+            background-position: 215% 70%;
+            background-size: 75% 80%;
+            background-repeat: no-repeat;
+        }
+        &_slider { 
+            width: 300px;
+            height: 200px;
+            margin: 5rem 2rem 0rem 0rem;
+
+        }
+    }
+}
+
+// commonJobs
+.font-family {
+    font-family: $secondary-font;
+}
+
+// Numbers_main..........................
+.Numbers_main {
+    background-color: rgba(23, 54, 73, 1);
+}
+
+
